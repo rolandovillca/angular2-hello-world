@@ -19,6 +19,8 @@ var HEROES: Hero[] = [
   { "id": 20, "name": "Tornado" }
 ];
 
+public heroes = HEROES;
+
 @Component({
   selector: 'my-app',
   template:`
