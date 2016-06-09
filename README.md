@@ -7,10 +7,18 @@ Requirements:
 
 Steps:
 
-1. git clone <this application>
+Open a terminal window and follow below steps:
 
-2. npm install
+1.  Clone the application:
 
-3. npm start
+    $ git clone https://github.com/rolandovillca/angular2-quickstart.git
 
-4. Default browser is opened you can see 
+2. Install npm dependencies:
+
+    $ npm install
+
+3. Build and run the app:
+
+    $ npm start
+
+4. Default browser is opened you can see the Hello Angular2 message displayed.
