@@ -1,49 +1,106 @@
 import { Component } from '@angular/core';
 
-export class Hero {
+export class NetworkTraffic {
   id: number;
   name: string;
-  age: number;
+  status: string;
 }
-
-var HEROES: Hero[] = [
-  { "id": 11, "name": "Mr. Nice" },
-  { "id": 12, "name": "Narco" },
-  { "id": 13, "name": "Bombasto" },
-  { "id": 14, "name": "Celeritas" },
-  { "id": 15, "name": "Magneta" },
-  { "id": 16, "name": "RubberMan" },
-  { "id": 17, "name": "Dynama" },
-  { "id": 18, "name": "Dr IQ" },
-  { "id": 19, "name": "Magma" },
-  { "id": 20, "name": "Tornado" }
-];
-
-public heroes = HEROES;
 
 @Component({
   selector: 'my-app',
   template:`
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div>
-      <label>id: </label>{{hero.id}}
+    <br>
+    <h2>Select One Traffic</h2>
+    <ul class="report-traffic">
+      <li *ngFor="let traffic of traffics"
+          [class.selected]="traffic === selectedTraffic"
+          (click)='onSelect(traffic)'>
+        <span class="badge">{{traffic.id}}</span> {{traffic.name}} {{traffic.status}}
+      </li>
+    </ul>
+    <div *ngIf="selectedTraffic">
+      <h2>{{selectedTraffic.name}} - details!</h2>
+      <div>
+        <label>Id: </label>{{selectedTraffic.id}}
+      </div>
+      <div>
+        <label>Name: </label>
+        <input value="{{selectedTraffic.name}}" placeholder="name">
+        <br>
+        <label>Status: </label>
+        <input [(ngModel)]="selectedTraffic.status" placeholder="status">
+      </div>
     </div>
-    <div>
-      <label>name: </label>
-      <input value="{{hero.name}}" placeholder="name">
-      <br>
-      <label>age: </label>
-      <input [(ngModel)]="hero.age" placeholder="age">
-    </div>
-    `
+    `,
+  styles:[`
+    .selected {
+      background-color: #CFD8DC !important;
+      color: white;
+    }
+    .report-traffic {
+      margin: 0 0 2em 0;
+      list-style-type: none;
+      padding: 0;
+      width: 15em;
+    }
+    .report-traffic li {
+      cursor: pointer;
+      position: relative;
+      left: 0;
+      background-color: #EEE;
+      margin: .5em;
+      padding: .3em 0;
+      height: 1.6em;
+      border-radius: 4px;
+    }
+    .report-traffic li.selected:hover {
+      background-color: #BBD8DC !important;
+      color: white;
+    }
+    .report-traffic li:hover {
+      color: #607D8B;
+      background-color: #DDD;
+      left: .1em;
+    }
+    .report-traffic .text {
+      position: relative;
+      top: -3px;
+    }
+    .report-traffic .badge {
+      display: inline-block;
+      font-size: small;
+      color: white;
+      padding: 0.8em 0.7em 0 0.7em;
+      background-color: #607D8B;
+      line-height: 1em;
+      position: relative;
+      left: -1px;
+      top: -4px;
+      height: 1.8em;
+      margin-right: .8em;
+      border-radius: 4px 0 0 4px;
+    }
+  `]
 })
 
 export class AppComponent {
-  title = 'Tour of Heores';
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-    age: 25
-  }
+  title = 'Network Traffic Reports';
+  selectedTraffic: Traffic;
+  public traffics = TRAFFICS;
+
+  onSelect(traffic: Traffic) { this.selectedTraffic = traffic; }
 }
+
+var TRAFFICS: Traffic[] = [
+  { 'id': 11, 'name': 'Traffic 1', 'status': 'Up' },
+  { 'id': 12, 'name': 'Traffic 2', 'status': 'Up' },
+  { 'id': 13, 'name': 'Traffic 3', 'status': 'Up' },
+  { 'id': 14, 'name': 'Traffic 4', 'status': 'Up' },
+  { 'id': 15, 'name': 'Traffic 5', 'status': 'Down' },
+  { 'id': 16, 'name': 'Traffic 6', 'status': 'Up' },
+  { 'id': 17, 'name': 'Traffic 7', 'status': 'Unavailable' },
+  { 'id': 18, 'name': 'Traffic 8', 'status': 'Up' },
+  { 'id': 19, 'name': 'Traffic 9', 'status': 'Up' },
+  { 'id': 20, 'name': 'Traffic 10', 'status': 'Up' }
+];
