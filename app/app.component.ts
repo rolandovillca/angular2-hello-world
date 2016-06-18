@@ -86,13 +86,13 @@ export class NetworkTraffic {
 
 export class AppComponent {
   title = 'Network Traffic Reports';
-  selectedTraffic: Traffic;
+  selectedTraffic: NetworkTraffic;
   public traffics = TRAFFICS;
 
-  onSelect(traffic: Traffic) { this.selectedTraffic = traffic; }
+  onSelect(traffic: NetworkTraffic) { this.selectedTraffic = traffic; }
 }
 
-var TRAFFICS: Traffic[] = [
+var TRAFFICS: NetworkTraffic[] = [
   { 'id': 11, 'name': 'Traffic 1', 'status': 'Up' },
   { 'id': 12, 'name': 'Traffic 2', 'status': 'Up' },
   { 'id': 13, 'name': 'Traffic 3', 'status': 'Up' },
