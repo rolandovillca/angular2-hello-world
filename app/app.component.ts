@@ -6,6 +6,19 @@ export class NetworkTraffic {
   status: string;
 }
 
+var TRAFFICS: NetworkTraffic[] = [
+  { 'id': 11, 'name': 'Traffic 1', 'status': 'Up' },
+  { 'id': 12, 'name': 'Traffic 2', 'status': 'Up' },
+  { 'id': 13, 'name': 'Traffic 3', 'status': 'Up' },
+  { 'id': 14, 'name': 'Traffic 4', 'status': 'Up' },
+  { 'id': 15, 'name': 'Traffic 5', 'status': 'Down' },
+  { 'id': 16, 'name': 'Traffic 6', 'status': 'Up' },
+  { 'id': 17, 'name': 'Traffic 7', 'status': 'Unavailable' },
+  { 'id': 18, 'name': 'Traffic 8', 'status': 'Up' },
+  { 'id': 19, 'name': 'Traffic 9', 'status': 'Up' },
+  { 'id': 20, 'name': 'Traffic 10', 'status': 'Up' }
+];
+
 @Component({
   selector: 'my-app',
   template:`
@@ -91,16 +104,3 @@ export class AppComponent {
 
   onSelect(traffic: NetworkTraffic) { this.selectedTraffic = traffic; }
 }
-
-var TRAFFICS: NetworkTraffic[] = [
-  { 'id': 11, 'name': 'Traffic 1', 'status': 'Up' },
-  { 'id': 12, 'name': 'Traffic 2', 'status': 'Up' },
-  { 'id': 13, 'name': 'Traffic 3', 'status': 'Up' },
-  { 'id': 14, 'name': 'Traffic 4', 'status': 'Up' },
-  { 'id': 15, 'name': 'Traffic 5', 'status': 'Down' },
-  { 'id': 16, 'name': 'Traffic 6', 'status': 'Up' },
-  { 'id': 17, 'name': 'Traffic 7', 'status': 'Unavailable' },
-  { 'id': 18, 'name': 'Traffic 8', 'status': 'Up' },
-  { 'id': 19, 'name': 'Traffic 9', 'status': 'Up' },
-  { 'id': 20, 'name': 'Traffic 10', 'status': 'Up' }
-];
