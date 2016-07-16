@@ -1,6 +1,9 @@
 # Angular2
 typings
-*.js
+app/*.js
+test/*.js
+tools/*.js
+typings/*.js
 *.js.map
 
 # Logs
